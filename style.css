@@ -102,8 +102,9 @@ insert:hover{
     color:white;
     padding:10px;
     background-color: black;
-    height:100vh;
-    overflow-y: scroll;
+    height:20vh;
+    overflow-y: auto;
+    overflow-x:hidden ;
     box-sizing: inset 5px 5px 10px grey;
     transition: all 0.7s;
 
@@ -138,11 +139,13 @@ insert:hover{
     /* outline:1px solid red; */
     display: flex;
     width: 100%;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     transition: all 2s;
 }
 ::-webkit-scrollbar{
-    width:5px;
+    width:2px;
 }
 ::-webkit-scrollbar-thumb{
     background-color: gray;
