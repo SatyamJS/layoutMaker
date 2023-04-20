@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Draggable from "react-draggable";
 import "./App.css";
 
@@ -11,10 +11,14 @@ function App() {
     const newElement = (
       <Draggable>
         <div className="element">
-          <img src={elementSrc} alt={buttonName} />
+          <img src={elementSrc} alt={buttonName} ref={elementRef} />
           <div className="element-buttons">
-            <button onClick={() => handleSizeChange(10)}>+</button>
-            <button onClick={() => handleSizeChange(-10)}>-</button>
+            <button onClick={() => handleSizeChange(elementRef.current, 10)}>
+              +
+            </button>
+            <button onClick={() => handleSizeChange(elementRef.current, -10)}>
+              -
+            </button>
             <button onClick={() => handleDeleteElement(newElement)}>x</button>
           </div>
         </div>
@@ -29,16 +33,17 @@ function App() {
     );
   };
 
-  const handleSizeChange = (amount) => {
-    const lastElement = elements[elements.length - 1];
-    const elementStyle = window.getComputedStyle(lastElement);
+  const handleSizeChange = (element, amount) => {
+    const elementStyle = window.getComputedStyle(element);
     const currentWidth = parseInt(elementStyle.getPropertyValue("width"));
     const currentHeight = parseInt(elementStyle.getPropertyValue("height"));
     const newWidth = currentWidth + amount;
     const newHeight = currentHeight + amount;
-    lastElement.style.width = `${newWidth}px`;
-    lastElement.style.height = `${newHeight}px`;
+    element.style.width = `${newWidth}px`;
+    element.style.height = `${newHeight}px`;
   };
+
+  const elementRef = useRef(null);
 
   return (
     <div>
@@ -49,7 +54,6 @@ function App() {
         <button onClick={handleButtonClick}>Conveyor Belt</button>
         <button onClick={handleButtonClick}>Pump</button>
         <button onClick={handleButtonClick}>Generator</button>
-        
       </div>
       <div className="container">
         {elements.map((element, index) => (
@@ -61,5 +65,5 @@ function App() {
     </div>
   );
 }
-export default App;
 
+export default App;
