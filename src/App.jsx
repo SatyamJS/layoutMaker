@@ -59,7 +59,7 @@ function App() {
         <button onClick={handleButtonClick}>Lathe</button>
         <button onClick={handleButtonClick}>Crane</button>
         <button onClick={handleButtonClick}>Compressor</button>
-        <button onClick={handleButtonClick}>Conveyor Belt</button>
+        <button onClick={handleButtonClick}>Connector</button>
         <button onClick={handleButtonClick}>Pump</button>
         <button onClick={handleButtonClick}>Generator</button>
       </div>
