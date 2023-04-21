@@ -13,14 +13,11 @@ function App() {
     const newElement = (
       <Draggable>
         <div className="element">
-          <img src={elementSrc} alt={buttonName} ref={elementRef} />
+         
+            <img src={elementSrc} alt={buttonName} ref={elementRef} className={elementSrc} />
           <div className="element-buttons">
-            <button onClick={() => handleSizeChange(elementRef.current, 10)}>
-              +
-            </button>
-            <button onClick={() => handleSizeChange(elementRef.current, -10)}>
-              -
-            </button>
+            <button onClick={() => handleSizeChange(elementRef.current, 10)}>+</button>
+            <button onClick={() => handleSizeChange(elementRef.current, -10)}>-</button>
             <button onClick={() => handleDeleteElement(newElement)}>x</button>
           </div>
         </div>
@@ -60,6 +57,7 @@ function App() {
         <button onClick={handleButtonClick}>Crane</button>
         <button onClick={handleButtonClick}>Compressor</button>
         <button onClick={handleButtonClick}>Connector</button>
+        <button onClick={handleButtonClick}>Vertical Connector</button>
         <button onClick={handleButtonClick}>Pump</button>
         <button onClick={handleButtonClick}>Generator</button>
       </div>
@@ -75,7 +73,6 @@ function App() {
         ))}
       </div>
       <div className="buttons-container">
-        <button className="connect-button" onClick={handleConnectClick}>Connect</button>
         <button className="simulate-button" onClick={handleSimulateClick}>Simulate</button>
       </div>
     </div>
