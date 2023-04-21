@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import React from "react";
+import { useState } from "react";
 import Draggable from "react-draggable";
 import "./App.css";
 
@@ -8,6 +9,7 @@ function App() {
   const handleButtonClick = (e) => {
     const buttonName = e.target.innerText.toLowerCase();
     const elementSrc = `${buttonName}.png`;
+    const elementRef = React.createRef();
     const newElement = (
       <Draggable>
         <div className="element">
@@ -43,8 +45,6 @@ function App() {
     element.style.height = `${newHeight}px`;
   };
 
-  const elementRef = useRef(null);
-
   return (
     <div>
       <div className="navbar">
@@ -58,7 +58,11 @@ function App() {
       <div className="container">
         {elements.map((element, index) => (
           <div className="draggable-element" key={index}>
-            {element}
+            {React.cloneElement(element, {
+              key: index,
+              handleSizeChange: handleSizeChange,
+              handleDeleteElement: handleDeleteElement,
+            })}
           </div>
         ))}
       </div>
