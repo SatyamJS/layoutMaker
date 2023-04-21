@@ -45,6 +45,14 @@ function App() {
     element.style.height = `${newHeight}px`;
   };
 
+  const handleConnectClick = () => {
+    // Add logic to handle the "Connect" button click here
+  };
+
+  const handleSimulateClick = () => {
+    // Add logic to handle the "Simulate" button click here
+  };
+
   return (
     <div>
       <div className="navbar">
@@ -65,6 +73,10 @@ function App() {
             })}
           </div>
         ))}
+      </div>
+      <div className="buttons-container">
+        <button className="connect-button" onClick={handleConnectClick}>Connect</button>
+        <button className="simulate-button" onClick={handleSimulateClick}>Simulate</button>
       </div>
     </div>
   );

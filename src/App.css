@@ -1,13 +1,13 @@
 *{
-  outline :1px solid red;
+  /* outline :1px solid red; */
   user-select: none;
 }
 .element {
   display: inline-block;
   position: relative;
   margin: 10px;
-  width:150px;
-  height:150px;
+  width:100px;
+  height:100px;
 }
 
 
@@ -15,19 +15,26 @@
   position: absolute;
   top: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 2px;
   display: flex;
   flex-direction: column;
+  border-radius: 5px;
 }
 
 .element-buttons button {
   color: #fff;
   background-color: transparent;
   border: none;
-  font-size: 18px;
+  font-size: 12px;
   cursor: pointer;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
+}
+.element-buttons button:nth-child(2){
+  font-size: 18px;
+}
+.element-buttons button:nth-child(3){
+  background-color: red;
 }
 
 .draggable-element {
@@ -61,7 +68,7 @@
 
 .container {
   position: relative;
-  height: 500px;
+  height: 400px;
   width:95vw;
   margin:auto;
   border: 1px solid #ddd;
@@ -75,4 +82,34 @@
   max-width: none;
   max-height: none;
 }
+.buttons-container{
+  text-align: center;
+  margin:10px;
+}
+.connect-button,
+.simulate-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #2196F3;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.connect-button:hover,
+.simulate-button:hover {
+  background-color: #0c7cd5;
+}
+
+.connect-button:active,
+.simulate-button:active {
+  background-color: #0a63a8;
+}
+
+.connect-button {
+  margin-right: 10px;
+}
+
 
