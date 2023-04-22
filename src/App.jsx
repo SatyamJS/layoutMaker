@@ -10,11 +10,11 @@ function App() {
     const buttonName = e.target.innerText.toLowerCase();
     const elementSrc = `${buttonName}.png`;
     const elementRef = React.createRef();
+    const elementClassName = buttonName === "connector" || buttonName === "vertical connector" ? "element no-animation" : "element";
     const newElement = (
       <Draggable>
-        <div className="element">
-         
-            <img src={elementSrc} alt={buttonName} ref={elementRef} className={elementSrc} />
+        <div className={elementClassName}>
+          <img src={elementSrc} alt={buttonName} ref={elementRef} className={elementSrc} />
           <div className="element-buttons">
             <button onClick={() => handleSizeChange(elementRef.current, 10)}>+</button>
             <button onClick={() => handleSizeChange(elementRef.current, -10)}>-</button>
@@ -23,6 +23,7 @@ function App() {
         </div>
       </Draggable>
     );
+    ;
     setElements((prevState) => [...prevState, newElement]);
   };
 
