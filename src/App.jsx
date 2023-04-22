@@ -11,10 +11,10 @@ function App() {
     const buttonName = e.target.innerText.toLowerCase();
     const elementSrc = `${buttonName}.png`;
     const elementRef = React.createRef();
-    const elementClassName = buttonName === "connector" || buttonName === "tbconnector" || buttonName==="btconnector" ? "element no-animation" : "element";
+    const elementClassName = buttonName === "connector" || buttonName === "tbconnector" || buttonName === "btconnector" ? "element no-animation" : "element";
     const newElement = (
       <Draggable>
-        <div className={elementClassName +" "+elementSrc.split(".")[0]} >
+        <div className={elementClassName + " " + elementSrc.split(".")[0]} >
           <img src={elementSrc} alt={buttonName} ref={elementRef} />
           <div className="element-buttons">
             <button onClick={() => handleSizeChange(elementRef.current, 10)}>+</button>
@@ -48,35 +48,41 @@ function App() {
     const connectorElement = document.querySelectorAll(".connector");
     const verticalConnectorElement = document.querySelectorAll(".tbconnector");
     const verticalBTConnectorElement = document.querySelectorAll(".btconnector")
+
     connectorElement.forEach((element) => {
       let Div = document.createElement("div");
-      Div.className="goldendiv"
+      Div.className = "goldendiv"
       element.insertBefore(Div, element.firstChild);
     });
     verticalConnectorElement.forEach((element) => {
       let Div = document.createElement("div");
-      Div.className="goldendivVer"
+      Div.className = "goldendivVer"
       element.insertBefore(Div, element.secondChild);
     });
     verticalBTConnectorElement.forEach((element) => {
       let Div = document.createElement("div");
-      Div.className="goldendivVerBT"
+      Div.className = "goldendivVerBT"
       element.insertBefore(Div, element.secondChild);
     });
-    
+
   };
 
   return (
     <div>
       <div className="navbar">
         <button onClick={handleButtonClick}>Lathe</button>
+        <button onClick={handleButtonClick}>FactoryCart</button>
+        <button onClick={handleButtonClick}>Boiler</button>
+        <button onClick={handleButtonClick}>Warehouse</button>
         <button onClick={handleButtonClick}>Crane</button>
         <button onClick={handleButtonClick}>Compressor</button>
+        <button onClick={handleButtonClick}>Pump</button>
+        <button onClick={handleButtonClick}>Generator</button>
+      </div>
+      <div className="navbar">
         <button onClick={handleButtonClick}>Connector</button>
         <button onClick={handleButtonClick}>TBconnector</button>
         <button onClick={handleButtonClick}>BTconnector</button>
-        <button onClick={handleButtonClick}>Pump</button>
-        <button onClick={handleButtonClick}>Generator</button>
       </div>
       <div className="container">
         {elements.map((element, index) => (
