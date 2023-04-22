@@ -14,7 +14,7 @@ function App() {
     const newElement = (
       <Draggable>
         <div className={elementClassName}>
-          <img src={elementSrc} alt={buttonName} ref={elementRef} className={elementSrc} />
+          <img src={elementSrc} alt={buttonName} ref={elementRef} />
           <div className="element-buttons">
             <button onClick={() => handleSizeChange(elementRef.current, 10)}>+</button>
             <button onClick={() => handleSizeChange(elementRef.current, -10)}>-</button>
@@ -48,7 +48,14 @@ function App() {
   };
 
   const handleSimulateClick = () => {
-    // Add logic to handle the "Simulate" button click here
+    const noAnimationElements = document.querySelectorAll(".no-animation");
+    noAnimationElements.forEach((element) => {
+      const goldenDiv = document.createElement("div");
+      goldenDiv.className="goldendiv"
+      element.insertBefore(goldenDiv, element.firstChild);
+      element.insertBefore(goldenDiv, element.firstChild);
+      element.insertBefore(goldenDiv, element.firstChild);
+    });
   };
 
   return (
