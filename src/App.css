@@ -2,7 +2,27 @@
   /* outline :1px solid red; */
   user-select: none;
 }
-
+body{
+  background-color:#181818 ;
+  color:white;
+}
+.logo{
+  width: 70px;
+  position: relative;
+  top:0px;
+  left:0px;
+  margin:20px;
+  margin-bottom: 0px;
+}
+.logo img{
+  width:100%;
+  transition: all 0.5s;
+}
+.logo img:hover{
+  border-radius: 50%;
+  filter: hue-rotate(260deg);
+  transform: rotateZ(360deg);
+}
 .element {
   display: flex;
   flex-direction: column;
@@ -77,10 +97,9 @@
 
 .container {
   position: relative;
-  height: 450px;
-  width: 95vw;
-  margin: auto;
-  border: 1px solid #ddd;
+  height: 420px;
+  width: 90vw;
+  margin:15px auto;
   background-color: #007bff;
   display: flex;
   border-radius: 10px;
@@ -92,7 +111,6 @@
   height: 100%;
   max-width: none;
   max-height: none;
-  /* animation: shake 1s infinite; */
 
 }
 
@@ -163,22 +181,30 @@
   font-size: 16px;
   text-align: center;
   cursor: pointer;
+  margin:10px 20px;
 }
 
-.connect-button:hover,
 .simulate-button:hover {
   background-color: #0c7cd5;
 }
 
-.connect-button:active,
+
 .simulate-button:active {
   background-color: #0a63a8;
 }
 
-.connect-button {
-  margin-right: 10px;
+.clearBtn{
+  color:white;
+  background-color: red;
+  border:none;
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
 }
-
+.clearBtn:hover{
+  background-color: #0c7cd5;
+}
 
 .goldendiv {
   width: 10px;
@@ -292,4 +318,15 @@
 .connector, .tbconnector, .btconnector{
   width:100px;
   height:100px;
+}
+@media only screen and (max-width:1000px) {
+  .container{
+    height:70vh;
+  }
+  .navbar{
+    margin: 20px;
+  }
+  .navbar button{
+    font-size: 1rem;
+  }
 }

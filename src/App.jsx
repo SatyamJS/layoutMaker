@@ -66,9 +66,19 @@ function App() {
     });
 
   };
+  const handleClear=()=>{
+    const container = document.querySelector(".container")
+    let ans= confirm("Are u sure to clear the workspace?");
+    if (ans){
+      container.innerHTML=""
+    }
+  }
 
   return (
     <div>
+      <div className="logo">
+        <img src="logo.png" alt="" />
+      </div>
       <div className="navbar">
         <button onClick={handleButtonClick}>Lathe</button>
         <button onClick={handleButtonClick}>FactoryCart</button>
@@ -97,6 +107,7 @@ function App() {
       </div>
       <div className="buttons-container">
         <button className="simulate-button" onClick={handleSimulateClick}>Simulate</button>
+        <button className="clearBtn" onClick={handleClear}>Clear Workspace</button>
       </div>
     </div>
   );
